@@ -1,36 +1,48 @@
-# AQI Intel — Urban Air Quality Intelligence Dashboard
+# AQI Intel — AI-Powered Urban Air Quality Intelligence Platform
 
-A live-streaming, interactive Air Quality Index (AQI) intelligence dashboard built for city authorities, environmental analysts, and citizens to visualize real-time pollution metrics, dispersion plumes, and AI-driven predictive insights across major urban centers in India.
+An advanced environmental intelligence and geospatial analytics platform built to address the national urban air quality crisis. This platform moves beyond reactive monitoring to provide proactive, evidence-based intervention tools for city administrators, municipal bodies, and pollution control authorities.
 
-**Live Production Link:** [https://sayani-airaq.netlify.app/](https://sayani-airaq.netlify.app/)
-
----
-
-## 🚀 Core Features
-
-* **Live WAQI API Streaming:** Real-time data synchronization directly fetching real-world AQI, Particulate Matter ($PM_{2.5}$ and $PM_{10}$), and Nitrogen Dioxide ($NO_2$) indices via custom live network pipelines.
-* **Dynamic GIS Mapping Interface:** Responsive, high-performance leafleted map rendering dark-mode vectors, custom styled-marker components displaying instant status colors, and responsive pinpoint interactivity.
-* **Wind Dispersion Plume Simulation:** Dynamic spatial vectoring layer which renders real-time pollution dispersion geometry maps based directly on live wind speed and cardinal direction vectors.
-* **7-Day Historical Trend Evaluation:** Automated graph parsing showing weekly averages, fluctuations, and snapshot data breakpoints using dynamic math-interpolation calculators.
-* **AI Urban Intelligence Analytics:** Tactical diagnostic readouts displaying pollution source attribution distributions (Vehicular, Industrial, Domestic) along with optimized city-enforcement recommendation checklists.
+**Live Production Link:** [https://sayani-airaq.netlify.app/](https://sayani-airaq.netlify.app/)  
+**GitHub Repository:** [https://github.com/dola2164-png/hackathon1/](https://github.com/dola2164-png/hackathon1/)
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🎯 Problem Alignment & Solutions
 
-* **Frontend Framework:** React (Vite-optimized runtime SPA architecture)
-* **Mapping Framework:** Leaflet.js / React-Leaflet
-* **Data Integration Layer:** World Air Quality Index (WAQI) RESTful Feed API
-* **Styling Engine:** Custom Responsive Component UI & Embedded Hex CSS 
-* **Deployment Base:** Netlify Core Production Pipeline
+Designed strictly in accordance with the **Smart Cities / Environmental Intelligence** framework, the application delivers a working prototype addressing the core challenge tracks:
+
+### 1. Multi-City Comparative Intelligence Dashboard
+* **Feature:** Direct spatial mapping vectors across major tier-1 and tier-2 urban centers (Kolkata, Delhi, Mumbai, Pune, Bangalore, Chennai, etc.).
+* **Impact:** Provides city administrators with macro-level cross-geography trends, tracking real-world multi-station data streams side-by-side to contrast regional compliance levels.
+
+### 2. Geospatial Pollution Source Attribution Engine (Powered by Gemini API)
+* **Feature:** Real-time AI attribution metrics mapped dynamically per selected urban center.
+* **Impact:** Leverages the **Gemini API** to evaluate station parameters alongside local industrial profiles to output immediate statistical confidence scores for key emission categories (Vehicle Emissions, Industrial Output, Construction Dust, Crop Burning).
+
+### 3. Enforcement Intelligence & Prioritization Agent (Powered by Gemini API)
+* **Feature:** Automated, ranked municipal enforcement checklists (P1, P2, P3 levels) detailing targeted localized policies.
+* **Impact:** Integrated LLM analytical layer generates action recommendations—such as localized odd-even vehicle restrictions, construction suspensions, or industrial scaling rollbacks—complete with calculated reduction estimations ($PM_{2.5}$ / $PM_{10}$).
+
+### 4. Hyperlocal Predictive AQI Forecasting
+* **Feature:** Interactive 7-day multi-axis trend forecasting charts displaying historical interpolation alongside upcoming predictive risk indices.
 
 ---
 
-## 💻 Local Installation & Setup
+## 🛠️ Architecture & Tech Stack
 
-To download, configure, and boot this project on your machine locally:
+* **Core Engine:** React.js (Vite Runtime) SPA Architecture
+* **AI Engine:** Google Gemini API (Structured Prompting & Tactical Diagnostics Generation)
+* **Geospatial Layer:** Leaflet.js Vector Engine (Dark Maps Platform)
+* **Data Layer:** World Air Quality Index (WAQI) RESTful Feed API
+* **Deployment Pipe:** Netlify Automated CI/CD Production Build
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-   cd YOUR_REPO_NAME
+---
+
+## 💻 Local Installation & Configuration
+
+Follow these steps to spin up the intelligence platform locally:
+
+1. **Clone the Repository:**
+```bash
+   git clone [https://github.com/dola2164-png/hackathon1/.git](https://github.com/dola2164-png/hackathon1/.git)
+   cd hackathon1
