@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AQ Intel — Architecture Diagram</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0d14;
+      color: #e8edf8;
+      font-family: Inter, system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.02em; }
+    p  { color: #8899cc; font-size: 13px; margin-bottom: 32px; }
+    .card {
+      background: #111520;
+      border: 1px solid #252d45;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 860px;
+      width: 100%;
+    }
+    svg text { font-family: Inter, system-ui, sans-serif; fill: #e8edf8; }
+    .layer-label { fill: #4a5680; font-size: 11px; letter-spacing: 0.1em; }
+    .node-box { cursor: pointer; }
+    .node-box:hover rect { opacity: 0.85; }
+    .title-text { font-size: 13px; font-weight: 600; fill: #e8edf8; }
+    .sub-text   { font-size: 11px; fill: #8899cc; }
+    .legend { display: flex; gap: 24px; margin-top: 24px; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #8899cc; }
+    .legend-dot  { width: 12px; height: 12px; border-radius: 4px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+  <h1>🌫️ AQ Intel — System Architecture</h1>
+  <p>AI-Powered Urban Air Quality Intelligence Platform · ET AI Hackathon 2026</p>
+
+  <div class="card">
+    <svg width="100%" viewBox="0 0 780 640" role="img">
+      <title>AQ Intel Architecture</title>
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#3d5280" stroke-width="1.5" stroke-linecap="round"/>
+        </marker>
+      </defs>
+
+      <!-- Layer labels -->
+      <text class="layer-label" x="28" y="138" text-anchor="middle" transform="rotate(-90,28,138)">DATA LAYER</text>
+      <text class="layer-label" x="28" y="335" text-anchor="middle" transform="rotate(-90,28,335)">AI LAYER</text>
+      <text class="layer-label" x="28" y="520" text-anchor="middle" transform="rotate(-90,28,520)">OUTPUT LAYER</text>
+
+      <!-- Dividers -->
+      <line x1="50" y1="205" x2="740" y2="205" stroke="#1e2540" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="50" y1="418" x2="740" y2="418" stroke="#1e2540" stroke-width="1" stroke-dasharray="4 4"/>
+
+      <!-- DATA LAYER -->
+      <g class="node-box">
+        <rect x="62" y="62" width="168" height="60" rx="8" fill="#0d2d2a" stroke="#1d5c54" stroke-width="0.8"/>
+        <text class="title-text" x="146" y="88" text-anchor="middle">OpenAQ v3 API</text>
+        <text class="sub-text"   x="146" y="108" text-anchor="middle">Live PM2.5 · PM10 sensors</text>
+      </g>
+      <g class="node-box">
+        <rect x="270" y="62" width="180" height="60" rx="8" fill="#0d2d2a" stroke="#1d5c54" stroke-width="0.8"/>
+        <text class="title-text" x="360" y="88" text-anchor="middle">CAAQMS stations</text>
+        <text class="sub-text"   x="360" y="108" text-anchor="middle">900+ India monitoring sites</text>
+      </g>
+      <g class="node-box">
+        <rect x="490" y="62" width="168" height="60" rx="8" fill="#0d2d2a" stroke="#1d5c54" stroke-width="0.8"/>
+        <text class="title-text" x="574" y="88" text-anchor="middle">Met / Wind data</text>
+        <text class="sub-text"   x="574" y="108" text-anchor="middle">Speed · direction · humidity</text>
+      </g>
+      <g class="node-box">
+        <rect x="265" y="155" width="190" height="36" rx="8" fill="#161b2e" stroke="#252d45" stroke-width="0.8"/>
+        <text class="title-text" x="360" y="178" text-anchor="middle">5-min in-memory cache + fallback</text>
+      </g>
+      <line x1="146" y1="122" x2="146" y2="163" stroke="#2e3a5c" stroke-width="1" marker-end="url(#arr)"/>
+      <path d="M146 163 L265 173" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <line x1="360" y1="122" x2="360" y2="155" stroke="#2e3a5c" stroke-width="1" marker-end="url(#arr)"/>
+      <path d="M574 122 L574 163 L455 173" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+
+      <!-- AI LAYER -->
+      <g class="node-box">
+        <rect x="62" y="228" width="168" height="60" rx="8" fill="#1e1040" stroke="#4a3080" stroke-width="0.8"/>
+        <text class="title-text" x="146" y="254" text-anchor="middle">PM2.5 → AQI engine</text>
+        <text class="sub-text"   x="146" y="274" text-anchor="middle">India CPCB formula</text>
+      </g>
+      <g class="node-box">
+        <rect x="258" y="222" width="204" height="72" rx="10" fill="#1a0e3a" stroke="#6040c0" stroke-width="1.2"/>
+        <text class="title-text" x="360" y="250" text-anchor="middle">Gemini 2.0 Flash</text>
+        <text class="sub-text"   x="360" y="270" text-anchor="middle">Source attribution · Enforcement</text>
+        <text class="sub-text"   x="360" y="286" text-anchor="middle">Forecast · Bilingual advisory</text>
+      </g>
+      <g class="node-box">
+        <rect x="490" y="228" width="168" height="60" rx="8" fill="#1e1040" stroke="#4a3080" stroke-width="0.8"/>
+        <text class="title-text" x="574" y="254" text-anchor="middle">Plume dispersion model</text>
+        <text class="sub-text"   x="574" y="274" text-anchor="middle">Wind-driven AQI spread</text>
+      </g>
+
+      <path d="M330 191 L270 228" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M330 191 L146 228" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M390 191 L574 228" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+
+      <!-- AI outputs -->
+      <g class="node-box">
+        <rect x="62" y="334" width="140" height="56" rx="8" fill="#2a1008" stroke="#7a3010" stroke-width="0.8"/>
+        <text class="title-text" x="132" y="358" text-anchor="middle">Source attribution</text>
+        <text class="sub-text"   x="132" y="378" text-anchor="middle">Vehicles · Industry · Dust</text>
+      </g>
+      <g class="node-box">
+        <rect x="224" y="334" width="140" height="56" rx="8" fill="#2a1008" stroke="#7a3010" stroke-width="0.8"/>
+        <text class="title-text" x="294" y="358" text-anchor="middle">Enforcement actions</text>
+        <text class="sub-text"   x="294" y="378" text-anchor="middle">Priority 1-2-3 ranked</text>
+      </g>
+      <g class="node-box">
+        <rect x="386" y="334" width="130" height="56" rx="8" fill="#2a1008" stroke="#7a3010" stroke-width="0.8"/>
+        <text class="title-text" x="451" y="358" text-anchor="middle">24h AQI forecast</text>
+        <text class="sub-text"   x="451" y="378" text-anchor="middle">Trend prediction</text>
+      </g>
+      <g class="node-box">
+        <rect x="532" y="334" width="130" height="56" rx="8" fill="#2a1008" stroke="#7a3010" stroke-width="0.8"/>
+        <text class="title-text" x="597" y="358" text-anchor="middle">EN + Hindi advisory</text>
+        <text class="sub-text"   x="597" y="378" text-anchor="middle">Citizen-facing multilingual</text>
+      </g>
+
+      <path d="M320 294 L132 334" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M330 294 L294 334" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M390 294 L451 334" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M400 294 L597 334" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+
+      <!-- OUTPUT LAYER -->
+      <g class="node-box">
+        <rect x="62" y="438" width="148" height="56" rx="8" fill="#061428" stroke="#1a4070" stroke-width="0.8"/>
+        <text class="title-text" x="136" y="462" text-anchor="middle">Leaflet dark map</text>
+        <text class="sub-text"   x="136" y="482" text-anchor="middle">10 cities · AQI markers</text>
+      </g>
+      <g class="node-box">
+        <rect x="226" y="438" width="148" height="56" rx="8" fill="#061428" stroke="#1a4070" stroke-width="0.8"/>
+        <text class="title-text" x="300" y="462" text-anchor="middle">Wind plume overlay</text>
+        <text class="sub-text"   x="300" y="482" text-anchor="middle">Live dispersion cone</text>
+      </g>
+      <g class="node-box">
+        <rect x="390" y="438" width="148" height="56" rx="8" fill="#061428" stroke="#1a4070" stroke-width="0.8"/>
+        <text class="title-text" x="464" y="462" text-anchor="middle">AQI gauge + chart</text>
+        <text class="sub-text"   x="464" y="482" text-anchor="middle">Animated arc · 7-day trend</text>
+      </g>
+      <g class="node-box">
+        <rect x="552" y="438" width="130" height="56" rx="8" fill="#061428" stroke="#1a4070" stroke-width="0.8"/>
+        <text class="title-text" x="617" y="462" text-anchor="middle">City panel</text>
+        <text class="sub-text"   x="617" y="482" text-anchor="middle">PM2.5 · PM10 · Wind</text>
+      </g>
+
+      <path d="M132 390 L136 438" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M574 390 L300 438" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M451 390 L464 438" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M597 390 L617 438" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+
+      <!-- City administrator -->
+      <g class="node-box">
+        <rect x="258" y="540" width="204" height="52" rx="10" fill="#161b2e" stroke="#3d7eff" stroke-width="1.2"/>
+        <text class="title-text" x="360" y="563" text-anchor="middle">City administrator</text>
+        <text class="sub-text"   x="360" y="582" text-anchor="middle">Signal → intervention in minutes</text>
+      </g>
+
+      <path d="M136 494 L300 540" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M300 494 L320 540" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M464 494 L390 540" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+      <path d="M617 494 L420 540" stroke="#2e3a5c" stroke-width="1" fill="none" marker-end="url(#arr)"/>
+    </svg>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#0d2d2a;border:1px solid #1d5c54"></div>Data ingestion</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#1e1040;border:1px solid #6040c0"></div>AI / ML layer (Gemini)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2a1008;border:1px solid #7a3010"></div>AI outputs</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#061428;border:1px solid #1a4070"></div>UI / visualisation</div>
+    </div>
+  </div>
+</body>
+</html>
